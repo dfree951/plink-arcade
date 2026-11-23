@@ -1,0 +1,55 @@
+:root {
+  color-scheme: dark;
+  background: #0c0d0e;
+  color: #ededed;
+  font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+}
+
+body { margin: 0; }
+
+nav { margin-bottom: 1rem; }
+nav a { color: #71dcdf; }
+
+main {
+  max-width: 58rem;
+  margin-inline: auto;
+  padding: clamp(1rem, 4vw, 2.5rem);
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.25rem;
+}
+
+pre {
+  margin: 0 0 1rem;
+  overflow-x: auto;
+  font: inherit;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+label { display: block; margin-bottom: 0.4rem; }
+.command-row { display: flex; gap: 0.5rem; }
+
+input, button {
+  border: 1px solid #7c8085;
+  border-radius: 0.25rem;
+  background: #17191b;
+  color: inherit;
+  font: inherit;
+  min-height: 2.75rem;
+  padding-inline: 0.65rem;
+}
+
+input { width: 15rem; min-width: 0; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid #71dcdf; outline-offset: 2px; }
+#input-error { color: #ffab9e; margin: 0.5rem 0 0; }
+#input-error:empty { display: none; }
+
+.ansi-32 { color: #71d988; }
+.ansi-33 { color: #f1d251; }
+.ansi-35 { color: #e0a3f2; }
+.ansi-36 { color: #71dcdf; }
+.ansi-37 { color: #ededed; }

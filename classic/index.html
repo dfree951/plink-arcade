@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Play the original terminal Plink game in your browser.">
+  <title>Plink</title>
+  <link rel="stylesheet" href="terminal.css">
+  <script type="module" src="terminal.js"></script>
+</head>
+<body>
+  <main>
+    <nav aria-label="Game version"><a href="../">Back to Arcade</a></nav>
+    <h1>Plink</h1>
+    <pre id="screen" role="log" aria-label="Game output"></pre>
+    <form id="command" hidden>
+      <label for="answer" id="prompt">Input</label>
+      <div class="command-row">
+        <input id="answer" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="input-error">
+        <button type="submit">Enter</button>
+      </div>
+      <p id="input-error" role="status"></p>
+    </form>
+    <button id="restart" type="button" hidden>New game</button>
+    <noscript>Enable JavaScript to play Plink.</noscript>
+  </main>
+</body>
+</html>

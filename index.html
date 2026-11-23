@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Play Plink on a 3D arcade board or in the original terminal edition.">
+  <meta name="theme-color" content="#eeebe1">
+  <title>Plink Arcade</title>
+  <link rel="stylesheet" href="./assets/arcade.css">
+  <script type="module" src="./assets/arcade.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="frame masthead">
+      <a class="brand" href="./" aria-label="Plink Arcade home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>PLINK<span class="brand-period">.</span></a>
+      <nav class="editions" aria-label="Game version">
+        <a href="./" aria-current="page">Arcade</a>
+        <a href="./classic/">Classic</a>
+      </nav>
+      <button type="button" class="sound" id="sound" aria-pressed="false"><span class="sound-icon" aria-hidden="true"></span><span id="sound-label">Sound off</span></button>
+    </div>
+  </header>
+
+  <main class="frame game">
+    <div class="game-heading"><h1>Plinko</h1><button class="text-button" type="button" id="new-game">New game</button></div>
+
+    <div class="game-layout">
+      <section class="machine" aria-label="Plinko board">
+        <div class="machine-header">
+          <div class="machine-status"><span class="status-light" aria-hidden="true"></span><span id="machine-state">Loading board</span></div>
+          <button class="view-button" type="button" id="view" aria-pressed="false" disabled>Angled view</button>
+        </div>
+        <div class="stage" id="stage" aria-label="3D pegboard with twenty payout bins">
+          <div class="stage-loading" id="stage-loading">Loading board</div>
+        </div>
+        <div class="machine-readout" id="machine-readout">
+          <div><span class="readout-label">Last drop</span><strong id="last-drop">—</strong></div>
+          <ol id="drop-history" class="drop-history" aria-label="Recent payouts"></ol>
+        </div>
+      </section>
+
+      <section class="controls" aria-labelledby="controls-title">
+        <h2 id="controls-title">Controls</h2>
+        <dl class="stats">
+          <div><dt>Credits</dt><dd id="credits">6</dd></div>
+          <div><dt>Drops</dt><dd id="rounds">0</dd></div>
+        </dl>
+
+        <div class="lane-picker">
+          <label for="lane">Start position</label>
+          <div class="lane-stepper">
+            <button type="button" id="lane-left" aria-label="Previous start position">−</button>
+            <div class="lane-value"><output id="lane-value" for="lane">10</output><span> / 20</span></div>
+            <button type="button" id="lane-right" aria-label="Next start position">+</button>
+          </div>
+          <input type="range" id="lane" min="1" max="20" value="10" disabled>
+        </div>
+
+        <fieldset class="token-mode" id="token-mode" disabled>
+          <legend>Tokens</legend>
+          <div class="segments">
+            <label><input type="radio" name="tokens" value="single" checked>Single</label>
+            <label><input type="radio" name="tokens" value="double" id="double">Double <small>+3</small></label>
+          </div>
+          <label class="checkbox"><input type="checkbox" id="always-double">Always double when possible</label>
+        </fieldset>
+
+        <button type="button" class="drop" id="drop" disabled><span id="drop-label">Drop token</span><span class="drop-cost" id="drop-cost">2 credits</span></button>
+        <p class="keyboard"><kbd>←</kbd><kbd>→</kbd> Position <kbd>Space</kbd> Drop</p>
+
+        <div class="extras" aria-label="Game options">
+          <button type="button" id="gamble" disabled>Gamble</button>
+          <button type="button" id="locker" disabled>Skins &amp; shop</button>
+          <button type="button" id="loot" disabled>Loot box</button>
+        </div>
+        <p class="notice" id="notice" role="status">Choose a start position from 1 to 20.</p>
+      </section>
+    </div>
+  </main>
+
+  <dialog id="options" aria-labelledby="options-title">
+    <div class="dialog-head"><h2 id="options-title"></h2><button type="button" class="close" id="close-options" aria-label="Close">×</button></div>
+    <div class="dialog-body" id="option-content"></div>
+  </dialog>
+  <noscript><p class="frame">Enable JavaScript to play Plink.</p></noscript>
+</body>
+</html>
